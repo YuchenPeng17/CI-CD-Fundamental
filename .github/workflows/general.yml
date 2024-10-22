@@ -2,11 +2,14 @@ on: push
 
 jobs: 
   npm-build:
+    name: Build React Project
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - run: pwd
-    - run: ls
-    - run: npm --version
-    - run: npm install
-    - run: npm run build
+    - name: Read repository code
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Build the project
+      run: npm run build
